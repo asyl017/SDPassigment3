@@ -4,10 +4,11 @@ public class Task {
     private int priority;
     private String name;
 
-    public void setTask(int priority) {
+    public Task(int priority, String name) {
         this.priority = priority;
         this.name = name;
     }
+
 
     public int getPriority() {
         return priority;
