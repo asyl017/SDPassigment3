@@ -1,11 +1,20 @@
 import chainOfResponsibility.*;
+import command.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        Task firstPriorityTask = new Task(1,"authorization");
-        Task secondPriorityTask = new Task(2,"authentication");
-        Task thirdPriorityTask = new Task(3,"confirmation");
+        Main main = new Main();
+        main.testChainOfResponsibility();
+
+        Main main2 = new Main();
+        main2.testCommand();
+    }
+
+    private void testChainOfResponsibility() {
+        Task firstPriorityTask = new Task(1, "authorization");
+        Task secondPriorityTask = new Task(2, "authentication");
+        Task thirdPriorityTask = new Task(3, "confirmation");
         Task wrong = new Task(4, "wrong");
 
 
@@ -26,13 +35,23 @@ public class Main {
         noPriority.handle(wrong);
     }
 
-    private void testChainOfResponsibility() {
 
-    }
-
-
-    private void testIterator() {
-
+    private void testCommand() {
+        Game GTA = new Game();
+        Music Mockingbird = new Music();
+        Command startGame = new GameStartCommand(GTA);
+        Command pauseGame = new GamePauseCommand(GTA);
+        Command playMusic = new MusicStartCommand(Mockingbird);
+        Command pauseMusic = new MusicPauseCommand(Mockingbird);
+        Controller controller = new Controller();
+        controller.setCommand(startGame);
+        controller.PressButton();
+        controller.setCommand(pauseGame);
+        controller.PressButton();
+        controller.setCommand(playMusic);
+        controller.PressButton();
+        controller.setCommand(pauseMusic);
+        controller.PressButton();
 
     }
 }
