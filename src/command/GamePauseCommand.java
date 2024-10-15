@@ -1,6 +1,6 @@
 package command;
 
-public class GamePauseCommand implements Command{
+public class GamePauseCommand implements Command {
     private Game game;
 
     public GamePauseCommand(Game game) {
@@ -9,6 +9,6 @@ public class GamePauseCommand implements Command{
 
     @Override
     public void execute() {
-    game.pause();
+        game.pause();
     }
 }

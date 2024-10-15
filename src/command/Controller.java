@@ -6,7 +6,8 @@ public class Controller {
     public void setCommand(Command command) {
         this.command = command;
     }
-    public void PressButton(){
+
+    public void PressButton() {
         command.execute();
     }
 }

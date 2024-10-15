@@ -1,7 +1,7 @@
 package command;
 
 public class GameStartCommand implements Command {
-   private Game game;
+    private Game game;
 
     public GameStartCommand(Game game) {
         this.game = game;
@@ -9,6 +9,6 @@ public class GameStartCommand implements Command {
 
     @Override
     public void execute() {
-    game.start();
+        game.start();
     }
 }

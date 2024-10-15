@@ -6,8 +6,7 @@ public class HighPriorityHandler extends BaseHandler {
     public void handle(Task task) {
         if (task.getPriority() == 1) {
             handleHighPriority(task);
-        }
-        else {
+        } else {
             nextHandler.handle(task);
         }
     }

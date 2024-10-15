@@ -1,6 +1,6 @@
 package command;
 
-public class MusicStartCommand implements Command{
+public class MusicStartCommand implements Command {
     private Music song;
 
     public MusicStartCommand(Music song) {

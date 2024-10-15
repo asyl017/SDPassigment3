@@ -1,17 +1,18 @@
 import chainOfResponsibility.*;
 import command.*;
+import mediator.Channel;
+import mediator.ChannelMediator;
+import mediator.Subscriber;
 
 public class Main {
 
     public static void main(String[] args) {
-        Main main = new Main();
-        main.testChainOfResponsibility();
-
-        Main main2 = new Main();
-        main2.testCommand();
+        testChainOfResponsibility();
+        testCommand();
+        testMediator();
     }
 
-    private void testChainOfResponsibility() {
+    private static void testChainOfResponsibility() {
         Task firstPriorityTask = new Task(1, "authorization");
         Task secondPriorityTask = new Task(2, "authentication");
         Task thirdPriorityTask = new Task(3, "confirmation");
@@ -36,7 +37,7 @@ public class Main {
     }
 
 
-    private void testCommand() {
+    private static void testCommand() {
         Game GTA = new Game();
         Music Mockingbird = new Music();
         Command startGame = new GameStartCommand(GTA);
@@ -52,6 +53,18 @@ public class Main {
         controller.PressButton();
         controller.setCommand(pauseMusic);
         controller.PressButton();
+
+    }
+
+    private static void testMediator() {
+        ChannelMediator mediator = new ChannelMediator();
+        Channel channel = new Channel(mediator, "LifeHacks");
+
+        Subscriber subscriber1 = new Subscriber("user1");
+        Subscriber subscriber2 = new Subscriber("user2");
+
+        channel.uploadVideo("Top 5 best life hacks");
+        channel.uploadVideo("Top 5 best life hacks with batteries");
 
     }
 }

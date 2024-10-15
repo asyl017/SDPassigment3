@@ -1,6 +1,6 @@
 package command;
 
-public class MusicPauseCommand implements Command{
+public class MusicPauseCommand implements Command {
     private Music song;
 
     public MusicPauseCommand(Music song) {
@@ -9,6 +9,6 @@ public class MusicPauseCommand implements Command{
 
     @Override
     public void execute() {
-    song.pause();
+        song.pause();
     }
 }
