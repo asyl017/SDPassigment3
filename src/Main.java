@@ -1,5 +1,7 @@
 import chainOfResponsibility.*;
 import command.*;
+import iterator.ConcreteCollection;
+import iterator.Iterator;
 import mediator.Channel;
 import mediator.ChannelMediator;
 import mediator.Subscriber;
@@ -10,6 +12,7 @@ public class Main {
         testChainOfResponsibility();
         testCommand();
         testMediator();
+        testIterator();
     }
 
     private static void testChainOfResponsibility() {
@@ -66,5 +69,17 @@ public class Main {
         channel.uploadVideo("Top 5 best life hacks");
         channel.uploadVideo("Top 5 best life hacks with batteries");
 
+    }
+    private static void testIterator(){
+        ConcreteCollection collection = new ConcreteCollection();
+        collection.add("ball");
+        collection.add("t-shirt");
+        collection.add("short");
+        collection.add("water");
+
+        Iterator newIterator = collection.createIterator();
+        while (newIterator.hasNext()){
+            System.out.println(newIterator.next());
+        }
     }
 }
